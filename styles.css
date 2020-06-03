@@ -1,0 +1,28 @@
+#imagem {
+    padding-left: 10px;
+    width: 150px;
+    left: 200px;
+}
+.content-checkbox {
+    width: 100%;
+    padding-left: 78px;
+    padding-top: 10px;
+}
+.content-getway {
+    padding-top: 10px;
+    text-align: center;
+}
+
+.content-email {
+    padding-top: 5px;
+    text-align: center;
+}
+.content-input {
+    padding: 1px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999
+}
+.content-input-button {
+    width: 100%;
+    background-color: rgb(73, 121, 121);
+}

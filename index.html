@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuração Email</title>
+    <script type="text/javascript" language="JavaScript" src="main.js"></script>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <div id="page-home">
+
+        <div class="content">
+            
+            <img id="imagem" src="./assets/iconGW.JPG">
+            
+            <div class="content-checkbox">
+        
+                <input type="checkbox" id=chip name="opcao" >
+                <label for="chip" >Chip</label>
+
+                <input type="checkbox" id=fibra name="opcao" >
+                <label for="fibra" >Fibra</label>
+
+            </div>
+
+            <div class="content-getway" >
+                <label >Getway :</label>
+                <input type="number" class= "content-input"  id=getway>
+            </div>
+
+            <div class="content-email">
+                <label>Email 1 :</label>
+                <input type="email" class="content-input"  id=email_1 >
+            </div>
+
+            <div class="content-email">
+                <label>Email 2 :</label>
+                <input type="email" class="content-input"  id=email_2 >
+            </div>
+
+            <div style="padding-top: 25px;">
+                <div id="status"></div>
+                <input class="content-input-button" type="button" id="configurar" onclick="configurar()" value="Configurar"/>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
