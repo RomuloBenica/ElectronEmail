@@ -16,11 +16,11 @@
             <img id="imagem" src="./assets/iconGW.JPG">
             
             <div class="content-checkbox">
-        
-                <input type="checkbox" id=chip name="opcao" >
+                <label>Modo de rede:</label>
+                <input type="checkbox" id=chip name="opcao" onclick="haverificaChecboxb()">
                 <label for="chip" >Chip</label>
 
-                <input type="checkbox" id=fibra name="opcao" >
+                <input type="checkbox" id=fibra name="opcao" onclick="haverificaChecboxb()" >
                 <label for="fibra" >Fibra</label>
 
             </div>
@@ -28,6 +28,16 @@
             <div class="content-getway" >
                 <label >Getway :</label>
                 <input type="number" class= "content-input"  id=getway>
+            </div>
+
+            <div class="content-checkbox-email">
+                <label>Habilitar email:</label>
+                <input type="checkbox" id=emailSim name="emailSim" >
+                <label for="emailSim" >SIM</label>
+
+                <input type="checkbox" id=emailNao name="emailNao" >
+                <label for="emailNao" >NÂO</label>
+
             </div>
 
             <div class="content-email">
