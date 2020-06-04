@@ -6,21 +6,22 @@
     <title>Configuração Email</title>
     <script type="text/javascript" language="JavaScript" src="main.js"></script>
     <link rel="stylesheet" href="styles.css">
-
+   
 </head>
 <body>
-    <div id="page-home">
+
+    <div id="page-home" >
 
         <div class="content">
             
-            <img id="imagem" src="./assets/iconGW.JPG">
+            <img id="imagem" src="./assets/logo.png">
             
             <div class="content-checkbox">
-                <label>Modo de rede:</label>
-                <input type="checkbox" id=chip name="opcao" onclick="haverificaChecboxb()">
+                <label >Modo de rede:</label>
+                <input type="checkbox" id=chip name="opcao" onclick="verificaChecboxbGetway()">
                 <label for="chip" >Chip</label>
 
-                <input type="checkbox" id=fibra name="opcao" onclick="haverificaChecboxb()" >
+                <input type="checkbox" id=fibra name="opcao" onclick="verificaChecboxbGetway()" >
                 <label for="fibra" >Fibra</label>
 
             </div>
@@ -32,10 +33,10 @@
 
             <div class="content-checkbox-email">
                 <label>Habilitar email:</label>
-                <input type="checkbox" id=emailSim name="emailSim" >
+                <input type="checkbox" id=emailSim name="emailSim" onclick="verificaChecboxbEmail()" >
                 <label for="emailSim" >SIM</label>
 
-                <input type="checkbox" id=emailNao name="emailNao" >
+                <input type="checkbox" id=emailNao name="emailNao" onclick="verificaChecboxbEmail()" >
                 <label for="emailNao" >NÂO</label>
 
             </div>
@@ -50,7 +51,7 @@
                 <input type="email" class="content-input"  id=email_2 >
             </div>
 
-            <div style="padding-top: 25px;">
+            <div class="content-email" style="padding-top: 25px;">
                 <div id="status"></div>
                 <input class="content-input-button" type="button" id="configurar" onclick="configurar()" value="Configurar"/>
 

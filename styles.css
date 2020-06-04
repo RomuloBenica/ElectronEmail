@@ -1,7 +1,13 @@
+
+body {
+    font-family: cambria ;
+    background-color: rgba(233, 243, 243, 0.959);
+}
+
 #imagem {
     padding-left: 9%;
-    width: 150px;
-    left: 200px;
+    width: 120px;
+    left: 100px;
 }
 .content-checkbox {
     width: 100%;
@@ -26,9 +32,15 @@
 .content-input {
     padding: 1px;
     border: 1px solid #ccc;
-    box-shadow: 1px 1px 1px #999
 }
 .content-input-button {
-    width: 100%;
-    background-color: rgb(73, 121, 121);
+    width: 100px;
+    height: 30px;
+    
+    background-color:#3bb674f8;
+    border-radius: 20px 12px;
+}
+
+#status {
+    color: red;
 }
