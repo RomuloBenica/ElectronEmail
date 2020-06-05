@@ -28,7 +28,16 @@ body {
 .content-email {
     padding-top: 5px;
     padding-left: 9%;
+
 }
+
+.content-ip {
+    flex: 1;
+    flex-direction: column;
+    padding-top: 7px;
+    padding-left: 9.5%;
+}
+
 .content-input {
     padding: 1px;
     border: 1px solid #ccc;

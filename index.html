@@ -20,43 +20,48 @@
             
             <div class="content-checkbox">
                 <label >Modo de rede:</label>
-                <input type="checkbox" id=chip name="opcao" onclick="verificaChecboxbGetway()">
+                <input type="checkbox" id="chip" name="opcao" onclick="verificaChecboxbGetway()">
                 <label for="chip" >Chip</label>
 
-                <input type="checkbox" id=fibra name="opcao" onclick="verificaChecboxbGetway()" >
+                <input type="checkbox" id="fibra" name="opcao" onclick="verificaChecboxbGetway()" >
                 <label for="fibra" >Fibra</label>
 
             </div>
 
             <div class="content-getway" >
                 <label >Getway :</label>
-                <input type="number" class= "content-input"  id=getway>
+                <input type="number" class= "content-input"  disabled=true id="getway">
             </div>
 
             <div class="content-checkbox-email">
                 <label>Habilitar email:</label>
-                <input type="checkbox" id=emailSim name="emailSim" onclick="verificaChecboxbEmail()" >
+                <input type="checkbox" id="emailSim" name="emailSim" onclick="verificaChecboxbEmail()" >
                 <label for="emailSim" >SIM</label>
 
-                <input type="checkbox" id=emailNao name="emailNao" onclick="verificaChecboxbEmail()" >
+                <input type="checkbox" id="emailNao" name="emailNao" onclick="verificaChecboxbEmail()" >
                 <label for="emailNao" >NÂO</label>
 
             </div>
 
             <div class="content-email">
                 <label>Email 1 :</label>
-                <input type="email" class="content-input"  id=email_1 >
+                <input type="email" class="content-input" disabled=true id="email_1" >
             </div>
 
             <div class="content-email">
                 <label>Email 2 :</label>
-                <input type="email" class="content-input"  id=email_2 >
+                <input type="email" class="content-input" disabled=true id="email_2" >
+            </div>
+            
+            <div class="content-ip">
+                <label>IP Placa:</label>
+                <input  type="number" class="content-input"  id="ip" maxlength="15" size="20" >
             </div>
 
             <div class="content-email" style="padding-top: 25px;">
                 <div id="status"></div>
                 <input class="content-input-button" type="button" id="configurar" onclick="configurar()" value="Configurar"/>
-
+                
             </div>
         </div>
     </div>
