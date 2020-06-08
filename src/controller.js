@@ -1,22 +1,23 @@
-var getway = document.getElementById('getway');
+var gateway = document.getElementById('gateway');
 var primeiroEmail = document.getElementById("email_1");
 var segundoEmail = document.getElementById("email_2");
 
-function verificaChecboxbGetway(){
+
+function verificaChecboxbGateway(){
 	if(document.getElementById('chip').checked){
-        document.getElementById('getway').disabled = true;
-        document.getElementById('getway').value = "";
+        document.getElementById('gateway').disabled = true;
+        document.getElementById('gateway').value = "";
         document.getElementById('fibra').disabled = true;
 	} else{
         document.getElementById('fibra').disabled = false;
-		document.getElementById('getway').disabled = false;
+		document.getElementById('gateway').disabled = false;
   };
   if(document.getElementById('fibra').checked){
-        document.getElementById('getway').disabled = false;
+        document.getElementById('gateway').disabled = false;
         document.getElementById('chip').disabled = true;
 	} else{
         document.getElementById('chip').disabled = false;
-		document.getElementById('getway').disabled = true;
+		document.getElementById('gateway').disabled = true;
   };
 }
 

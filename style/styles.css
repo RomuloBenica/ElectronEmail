@@ -20,7 +20,7 @@ body {
     padding-top: 10px;
 }
 
-.content-getway {
+.content-gateway {
     padding-top: 10px;
     padding-left: 9%;
 }
@@ -48,6 +48,7 @@ body {
     
     background-color:#3bb674f8;
     border-radius: 20px 12px;
+    border: none;
 }
 
 #status {

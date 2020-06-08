@@ -19,19 +19,19 @@ function configurar(){
       }else {
         fs.writeFile('./arquivosTxt/Rede.txt', 'CHIP',{enconding:'utf-8',flag: 'w'}, function (err) {
           if (err) throw err;
-            status.innerHTML = "Erro:"+err;
+            status.innerHTML = "Erro 1:"+err;
         });
         fs.writeFile('./arquivosTxt/Gateway.txt', ''+gateway,{enconding:'utf-8',flag: 'w'}, function (err) {
           if (err) throw err;
-            status.innerHTML = "Erro :"+err;
+            status.innerHTML = "Erro 2:"+err;
         });
         fs.writeFile('./arquivosTxt/primeiroemail.txt', ''+primeiroEmail,{enconding:'utf-8',flag: 'w'}, function (err) {
           if (err) throw err;
-            status.innerHTML = "Erro :"+err;
+            status.innerHTML = "Atenção email 1: Vazio"+err;
         });
         fs.writeFile('./arquivosTxt/segundoemail.txt', ''+segundoEmail,{enconding:'utf-8',flag: 'w'}, function (err) {
           if (err) throw err;
-            status.innerHTML = "Erro :"+err;
+            status.innerHTML = "Atenção email 2: Vazio "+err;
         });
         status.innerHTML = "Configuração enviada!";
       }
@@ -42,9 +42,9 @@ function configurar(){
       }else {
         fs.writeFile('./arquivosTxt/Gateway.txt', ''+gateway,{enconding:'utf-8',flag: 'w'}, function (err) {
           if (err) throw err;
-            status.innerHTML = "Erro :"+err;
+            status.innerHTML = "Erro 5:"+err;
         });
-        status.innerHTML = "Configuração enviada!";
+        status.innerHTML = "Configuração enviada!"+err;
       }
     }
     if(chip == false && emailSim == true && fibra == true && emailNao == false){
@@ -53,15 +53,15 @@ function configurar(){
       }else {
         fs.writeFile('./arquivosTxt/Gateway.txt', ''+gateway,{enconding:'utf-8',flag: 'w'}, function (err) {
           if (err) throw err;
-            status.innerHTML = "Erro :"+err;
+            status.innerHTML = "Erro 6:"+err;
         });
         fs.writeFile('./arquivosTxt/primeiroemail.txt', ''+primeiroEmail,{enconding:'utf-8',flag: 'w'}, function (err) {
           if (err) throw err;
-            status.innerHTML = "Erro :"+err;
+            status.innerHTML = "Erro 7:"+err;
         });
         fs.writeFile('./arquivosTxt/segundoemail.txt', ''+segundoEmail,{enconding:'utf-8',flag: 'w'}, function (err) {
           if (err) throw err;
-            status.innerHTML = "Erro :"+err;
+            status.innerHTML = "Erro 8:"+err;
         });
         status.innerHTML = "Configuração enviada!";
       }
@@ -69,11 +69,12 @@ function configurar(){
     if( chip == true && emailSim == false && fibra == false && emailNao == true ){
       fs.writeFile('./arquivosTxt/chip.txt', 'CHIP',{enconding:'utf-8',flag: 'w'}, function (err) {
         if (err) throw err;
-          status.innerHTML = "Erro :"+err;
+          status.innerHTML = "Erro 9:"+err;
       });
-      status.innerHTML = "Configuração enviada!";
+      status.innerHTML = "Configurado";
     }
   }else {
     return status.innerHTML = "Opcões Rede, IP ou Email não selecionado!";
   }
+
 } 

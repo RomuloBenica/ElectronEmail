@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configuração Email</title>
+    
     <script type="text/javascript" language="JavaScript" src="main.js"></script>
     <script type="text/javascript" language="JavaScript" src="./src/controller.js"></script>
     <script type="text/javascript" language="JavaScript" src="./src/criarTxt.js"></script>
+    <script type="text/javascript" language="JavaScript" src="./src/conecaoSSH.js"></script>
     <link rel="stylesheet" href="./style/styles.css">
    
 </head>
@@ -20,17 +22,17 @@
             
             <div class="content-checkbox">
                 <label >Modo de rede:</label>
-                <input type="checkbox" id="chip" name="opcao" onclick="verificaChecboxbGetway()">
+                <input type="checkbox" id="chip" name="opcao" onclick="verificaChecboxbGateway()">
                 <label for="chip" >Chip</label>
 
-                <input type="checkbox" id="fibra" name="opcao" onclick="verificaChecboxbGetway()" >
+                <input type="checkbox" id="fibra" name="opcao" onclick="verificaChecboxbGateway()" >
                 <label for="fibra" >Fibra</label>
 
             </div>
 
-            <div class="content-getway" >
-                <label >Getway :</label>
-                <input type="number" class= "content-input"  disabled=true id="getway">
+            <div class="content-gateway" >
+                <label >Gateway :</label>
+                <input type="text" class= "content-input"  disabled=true id="gateway">
             </div>
 
             <div class="content-checkbox-email">
@@ -55,13 +57,13 @@
             
             <div class="content-ip">
                 <label>IP Placa:</label>
-                <input  type="number" class="content-input"  id="ip" maxlength="15" size="20" >
+                <input  type="text" class="content-input"  id="ip">
             </div>
 
             <div class="content-email" style="padding-top: 25px;">
                 <div id="status"></div>
-                <input class="content-input-button" type="button" id="configurar" onclick="configurar()" value="Configurar"/>
-                
+                <input type="button" class="content-input-button"  id="configurar" onclick="configurar()" value="Configurar"/>
+                <!-- <input type="button" class="content-input-button"  id="enviar" onclick="document.getElementsByClassName('conecaoSSH')" value="Enviar"/> -->
             </div>
         </div>
     </div>
