@@ -6,9 +6,15 @@
     <title>Configuração Email</title>
     
     <script type="text/javascript" language="JavaScript" src="main.js"></script>
-    <script type="text/javascript" language="JavaScript" src="./src/controller.js"></script>
-    <script type="text/javascript" language="JavaScript" src="./src/criarTxt.js"></script>
-    <script type="text/javascript" language="JavaScript" src="./src/conecaoSSH.js"></script>
+    <script type="text/javascript" src="./src/controller.js"></script> 
+    <script type="text/javascript" src="./src/criarTxt.js"></script>
+    <script type="text/javascript" src="./src/conecaoSSH.js"></script>
+    <script>
+        function run(file) { 
+        let ws = new ActiveXObject("WScript.Shell"); 
+        ws.run(file); 
+        }
+    </script>
     <link rel="stylesheet" href="./style/styles.css">
    
 </head>
@@ -63,7 +69,7 @@
             <div class="content-email" style="padding-top: 25px;">
                 <div id="status"></div>
                 <input type="button" class="content-input-button"  id="configurar" onclick="configurar()" value="Configurar"/>
-                <!-- <input type="button" class="content-input-button"  id="enviar" onclick="document.getElementsByClassName('conecaoSSH')" value="Enviar"/> -->
+                <input type="button" class="content-input-button"  id="enviar" onclick='run("file:///C:/Users/Romulo/Documents/ElectronEmail/src/conecaoSSH.js")' value="Enviar"/>
             </div>
         </div>
     </div>

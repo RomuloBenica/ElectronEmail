@@ -1,6 +1,7 @@
 const fs = require('fs');
 
 function configurar(){
+
   let gateway = document.getElementById('gateway').value;
   var primeiroEmail = document.getElementById("email_1").value;
   var segundoEmail = document.getElementById("email_2").value;
@@ -14,6 +15,7 @@ function configurar(){
 
   if((fibra == true || chip == true ) && ( emailSim == true || emailNao == true ) && ip != ""){
     if(chip == true && emailSim == true && fibra == false && emailNao == false){
+
       if(!primeiroEmail && !segundoEmail){
         status.innerHTML = "Digite pelo menos 1 email!";
       }else {
@@ -36,6 +38,7 @@ function configurar(){
         status.innerHTML = "Configuração enviada!";
       }
     }
+
     if( chip == false && emailSim == false && fibra == true && emailNao == true ){
       if( !gateway ){
         status.innerHTML = "Gateway não preenchido !";
@@ -47,6 +50,7 @@ function configurar(){
         status.innerHTML = "Configuração enviada!"+err;
       }
     }
+
     if(chip == false && emailSim == true && fibra == true && emailNao == false){
       if (!gateway || (!primeiroEmail && !segundoEmail)){
         status.innerHTML = "Preencha todos os campos disponiveis!";
@@ -66,6 +70,7 @@ function configurar(){
         status.innerHTML = "Configuração enviada!";
       }
     }
+
     if( chip == true && emailSim == false && fibra == false && emailNao == true ){
       fs.writeFile('./arquivosTxt/chip.txt', 'CHIP',{enconding:'utf-8',flag: 'w'}, function (err) {
         if (err) throw err;
@@ -73,8 +78,19 @@ function configurar(){
       });
       status.innerHTML = "Configurado";
     }
+    
   }else {
     return status.innerHTML = "Opcões Rede, IP ou Email não selecionado!";
   }
-
 } 
+
+function ulisses() {
+
+  let status = document.getElementById("status");
+
+if(true){
+  return status.innerHTML = "Opcões Rede, IP ou Email não selecionado!";
+}
+}
+
+
