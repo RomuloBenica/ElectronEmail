@@ -18,6 +18,7 @@ body {
     width: 100%;
     padding-left: 9%;
     padding-top: 10px;
+    
 }
 
 .content-gateway {
@@ -47,10 +48,16 @@ body {
     height: 30px;
     
     background-color:#3bb674f8;
-    border-radius: 20px 12px;
+    border-radius: 20px 15px;
     border: none;
+    cursor: pointer;
+}
+
+.content-input-button:hover { 
+    background-color:#269e5ef8;
+    transition: 0.8;
 }
 
 #status {
-    color: red;
+    color: rgb(231, 9, 9);
 }

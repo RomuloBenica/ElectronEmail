@@ -8,18 +8,12 @@
     <script type="text/javascript" language="JavaScript" src="main.js"></script>
     <script type="text/javascript" src="./src/controller.js"></script> 
     <script type="text/javascript" src="./src/criarTxt.js"></script>
-    <script type="text/javascript" src="./src/conecaoSSH.js"></script>
-    <script>
-        function run(file) { 
-        let ws = new ActiveXObject("WScript.Shell"); 
-        ws.run(file); 
-        }
-    </script>
+   
     <link rel="stylesheet" href="./style/styles.css">
    
 </head>
 <body>
-
+   
     <div id="page-home" >
 
         <div class="content">
@@ -28,32 +22,32 @@
             
             <div class="content-checkbox">
                 <label >Modo de rede:</label>
-                <input type="checkbox" id="chip" name="opcao" onclick="verificaChecboxbGateway()">
+                <input type="radio" id="chip" name="opcao" onclick="verificaChecboxbGateway()">
                 <label for="chip" >Chip</label>
 
-                <input type="checkbox" id="fibra" name="opcao" onclick="verificaChecboxbGateway()" >
-                <label for="fibra" >Fibra</label>
+                <input type="radio" id="fiber" name="opcao" onclick="verificaChecboxbGateway()" >
+                <label for="fiber" >Fibra</label>
 
             </div>
 
             <div class="content-gateway" >
                 <label >Gateway :</label>
-                <input type="text" class= "content-input"  disabled=true id="gateway">
+                <input type="number" class= "content-input"  disabled=true id="gateway" placeholder="192.168.0.1">
             </div>
 
             <div class="content-checkbox-email">
                 <label>Habilitar email:</label>
-                <input type="checkbox" id="emailSim" name="emailSim" onclick="verificaChecboxbEmail()" >
+                <input type="radio" id="emailSim" name="emailSimNao" onclick="verificaChecboxbEmail()" >
                 <label for="emailSim" >SIM</label>
 
-                <input type="checkbox" id="emailNao" name="emailNao" onclick="verificaChecboxbEmail()" >
+                <input type="radio" id="emailNao" name="emailSimNao" onclick="verificaChecboxbEmail()" >
                 <label for="emailNao" >NÂO</label>
 
             </div>
 
             <div class="content-email">
                 <label>Email 1 :</label>
-                <input type="email" class="content-input" disabled=true id="email_1" >
+                <input type="email" class="content-input" disabled=true id="email_1"   placeholder="exemplo@email.com">
             </div>
 
             <div class="content-email">
@@ -63,15 +57,19 @@
             
             <div class="content-ip">
                 <label>IP Placa:</label>
-                <input  type="text" class="content-input"  id="ip">
+                <input  type="text" class="content-input"  id="ip" >
             </div>
 
             <div class="content-email" style="padding-top: 25px;">
                 <div id="status"></div>
                 <input type="button" class="content-input-button"  id="configurar" onclick="configurar()" value="Configurar"/>
-                <input type="button" class="content-input-button"  id="enviar" onclick='run("file:///C:/Users/Romulo/Documents/ElectronEmail/src/conecaoSSH.js")' value="Enviar"/>
+                <input type="button" class="content-input-button"  id="enviar" value="Enviar"/>
             </div>
         </div>
     </div>
+
+    <script>
+        require('./src/conecaoSSH.js')
+    </script>
 </body>
 </html>
