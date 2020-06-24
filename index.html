@@ -32,7 +32,7 @@
 
             <div class="content-gateway" >
                 <label >Gateway :</label>
-                <input type="number" class= "content-input"  disabled=true id="gateway" placeholder="192.168.0.1">
+                <input type="text" class= "content-input" size= 19 maxlength="15" onkeypress="return event.charCode >= 46 && event.charCode <= 57" disabled=true id="gateway" placeholder="192.168.0.1">
             </div>
 
             <div class="content-checkbox-email">
@@ -47,29 +47,35 @@
 
             <div class="content-email">
                 <label>Email 1 :</label>
-                <input type="email" class="content-input" disabled=true id="email_1"   placeholder="exemplo@email.com">
+                <input type="email" class="content-input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" disabled=true id="email_1"   placeholder="exemplo@email.com">
             </div>
-
             <div class="content-email">
                 <label>Email 2 :</label>
                 <input type="email" class="content-input" disabled=true id="email_2" >
             </div>
-            
             <div class="content-ip">
                 <label>IP Placa:</label>
-                <input  type="text" class="content-input"  id="ip" >
+                <input  type="text" class="content-input"  id="ip" maxlength="15" onkeypress="return event.charCode >= 46 && event.charCode <= 57">
             </div>
-
+            <div class="content-ip">
+                <label>ID Central:</label>
+                <input  type="text" class="content-input" size= 18 id="id" >
+            </div>
+            <div class="content-ip">
+                <label>Numero serie:</label>
+                <input  type="text" class="content-input" size= 14 id="numeroSerie" >
+            </div>
             <div class="content-email" style="padding-top: 25px;">
                 <div id="status"></div>
-                <input type="button" class="content-input-button"  id="configurar" onclick="configurar()" value="Configurar"/>
-                <input type="button" class="content-input-button"  id="enviar" value="Enviar"/>
+                <input type="button" class="content-input-button"  id="enviar" onclick="configurar()" value="enviar"/>  
+                <input type="button" class="content-input-button"  id="configurar" value="Configurar"/>
             </div>
         </div>
     </div>
 
     <script>
         require('./src/conecaoSSH.js')
+        require('./src/reboot.js')
     </script>
 </body>
 </html>

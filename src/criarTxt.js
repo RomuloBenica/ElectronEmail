@@ -13,8 +13,7 @@ function configurar(){
   let emailSim = document.getElementById('emailSim').checked;
   let emailNao =  document.getElementById('emailNao').checked;
   let ip = document.getElementById('ip').value;
-  
- 
+
   if((fiber == true || chip == true ) && ( emailSim == true || emailNao == true ) && ip != ""){
 
     if(chip == true && emailSim == true && fiber == false && emailNao == false){
@@ -24,21 +23,21 @@ function configurar(){
       }else {
         fs.writeFile('./arquivosTxt/Rede.txt', 'CHIP',{enconding:'utf-8',flag: 'w'}, function (err) {
           if (err) throw err;
-            status.innerHTML = "Configurado";
+            status.innerHTML = "Informaçoes validas!";
         });
         fs.writeFile('./arquivosTxt/Gateway.txt', ''+gateway,{enconding:'utf-8',flag: 'w'}, function (err) {
           if (err) throw err;
-            status.innerHTML = "Configurado";
+            status.innerHTML = "Informaçoes validas!";
         });
         fs.writeFile('./arquivosTxt/primeiroemail.txt', ''+primeiroEmail,{enconding:'utf-8',flag: 'w'}, function (err) {
           if (err) throw err;
-            status.innerHTML = "Configurado";
+            status.innerHTML = "Informaçoes validas!";
         });
         fs.writeFile('./arquivosTxt/segundoemail.txt', ''+segundoEmail,{enconding:'utf-8',flag: 'w'}, function (err) {
           if (err) throw err;
-            status.innerHTML = "Configurado ";
+            status.innerHTML = "Informaçoes validas! ";
         });
-        status.innerHTML = "Configurado";
+        status.innerHTML = "Informaçoes validas!";
       }
     }
 
@@ -48,21 +47,21 @@ function configurar(){
       }else {
         fs.writeFile('./arquivosTxt/Rede.txt', 'FIBRA',{enconding:'utf-8',flag: 'w'}, function (err) {
           if (err) throw err;
-            status.innerHTML = "Configurado";
+            status.innerHTML = "Informaçoes validas!";
         });
         fs.writeFile('./arquivosTxt/Gateway.txt', ''+gateway,{enconding:'utf-8',flag: 'w'}, function (err) {
           if (err) throw err;
-            status.innerHTML = "Configurado";
+            status.innerHTML = "Informaçoes validas!";
         });
         fs.writeFile('./arquivosTxt/primeiroemail.txt', ''+primeiroEmail,{enconding:'utf-8',flag: 'w'}, function (err) {
           if (err) throw err;
-            status.innerHTML = "Configurado";
+            status.innerHTML = "Informaçoes validas!";
         });
         fs.writeFile('./arquivosTxt/segundoemail.txt', ''+segundoEmail,{enconding:'utf-8',flag: 'w'}, function (err) {
           if (err) throw err;
-            status.innerHTML = "Configurado ";
+            status.innerHTML = "Informaçoes validas! ";
         });
-        status.innerHTML = "Configurado";
+        status.innerHTML = "Informaçoes validas!";
       }
     }
 
@@ -72,42 +71,42 @@ function configurar(){
       }else {
         fs.writeFile('./arquivosTxt/Rede.txt', 'FIBRA',{enconding:'utf-8',flag: 'w'}, function (err) {
           if (err) throw err;
-            status.innerHTML = "Configurado";
+            status.innerHTML = "Informaçoes validas!";
         });
         fs.writeFile('./arquivosTxt/Gateway.txt', ''+gateway,{enconding:'utf-8',flag: 'w'}, function (err) {
           if (err) throw err;
-            status.innerHTML = "Configurado";
+            status.innerHTML = "Informaçoes validas!";
         });
         fs.writeFile('./arquivosTxt/primeiroemail.txt', ''+primeiroEmail,{enconding:'utf-8',flag: 'w'}, function (err) {
           if (err) throw err;
-            status.innerHTML = "Configurado";
+            status.innerHTML = "Informaçoes validas!";
         });
         fs.writeFile('./arquivosTxt/segundoemail.txt', ''+segundoEmail,{enconding:'utf-8',flag: 'w'}, function (err) {
           if (err) throw err;
-            status.innerHTML = "Configurado";
+            status.innerHTML = "Informaçoes validas!";
         });
-        status.innerHTML = "Configurado";
+        status.innerHTML = "Informaçoes validas!";
       }
     }
 
     if( chip == true && emailSim == false && fiber == false && emailNao == true ){
       fs.writeFile('./arquivosTxt/Rede.txt', 'CHIP',{enconding:'utf-8',flag: 'w'}, function (err) {
         if (err) throw err;
-          status.innerHTML = "Configurado";
+          status.innerHTML = "Informaçoes validas!";
       });
       fs.writeFile('./arquivosTxt/Gateway.txt', ''+gateway,{enconding:'utf-8',flag: 'w'}, function (err) {
         if (err) throw err;
-          status.innerHTML = "Configurado";
+          status.innerHTML = "Informaçoes validas!";
       });
       fs.writeFile('./arquivosTxt/primeiroemail.txt', ''+primeiroEmail,{enconding:'utf-8',flag: 'w'}, function (err) {
         if (err) throw err;
-          status.innerHTML = "Configurado";
+          status.innerHTML = "Informaçoes validas!";
       });
       fs.writeFile('./arquivosTxt/segundoemail.txt', ''+segundoEmail,{enconding:'utf-8',flag: 'w'}, function (err) {
         if (err) throw err;
-          status.innerHTML = "Configurado";
+          status.innerHTML = "Informaçoes validas!";
       });
-      status.innerHTML = "Configurado";
+      status.innerHTML = "Informaçoes validas!";
     
     }
     
