@@ -24,15 +24,16 @@ const sftp = new Client();
          username:'debian',
          password:'temppwd',
      }).then(() => {
-         
-         sftp.put('./arquivosTxt/Rede.txt', '/home/debian/SendEmail_jar/Rede.txt'); 
-         sftp.put('./arquivosTxt/gateway.txt', '/home/debian/SendEmail_jar/Gateway.txt'); 
-         sftp.put('./arquivosTxt/primeiroemail.txt', '/home/debian/SendEmail_jar/Email_1.txt');
-         sftp.put('./arquivosTxt/segundoemail.txt', '/home/debian/SendEmail_jar/Email_2.txt');
-         sftp.put('./arquivosTxt/idCentral.txt', '/home/debian/numeroSerie.txt');
-         sftp.put('./arquivosTxt/idCentral.txt', '/home/debian/NAME.txt');
-         status.innerHTML = "Confirme a alteração";
-         return sftp.list('/home/debian');
+
+        sftp.put('./arquivosTxt/Rede.txt', '/home/debian/SendEmail_jar/Rede.txt'); 
+        sftp.put('./arquivosTxt/gateway.txt', '/home/debian/SendEmail_jar/Gateway.txt'); 
+        sftp.put('./arquivosTxt/primeiroemail.txt', '/home/debian/SendEmail_jar/Email_1.txt');
+        sftp.put('./arquivosTxt/segundoemail.txt', '/home/debian/SendEmail_jar/Email_2.txt');
+        sftp.put('./arquivosTxt/name.txt', '/home/debian/NAME.txt');
+        status.innerHTML = "Confirme a alteração";
+
+        return sftp.put('./arquivosTxt/idCentral.txt', '/home/debian/numeroSerie.txt');
+        
      }).then(data => {
          console.log(data, 'the data info');
         
