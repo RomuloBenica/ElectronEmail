@@ -2,9 +2,17 @@
 const Client = require('ssh2').Client;
 var conn = new Client();
 
-document.querySelector('#enviar').addEventListener('click', ()=>{
+document.querySelector('#configurar').addEventListener('click', ()=>{
+
     let ip = document.getElementById('ip').value;
-    reboot(ip);
+    let status = document.getElementById("status");
+    let conn = document.getElementById('status').innerHTML;
+    if(conn == 'Confirme a alteração'){
+        reboot(ip);
+        status.innerHTML = "Placa configurada com sucesso !!";
+    }else {
+        return status.innerHTML = "Informações não foram enviadas !";
+    }
  })
 
 function reboot (ip){

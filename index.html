@@ -7,6 +7,7 @@
     
     <script type="text/javascript" language="JavaScript" src="main.js"></script>
     <script type="text/javascript" src="./src/controller.js"></script> 
+    <!-- <script type="text/javascript" src="./src/conecaoSSH.js"></script> -->
     <script type="text/javascript" src="./src/criarTxt.js"></script>
    
     <link rel="stylesheet" href="./style/styles.css">
@@ -59,7 +60,7 @@
             </div>
             <div class="content-ip">
                 <label>ID Central:</label>
-                <input  type="text" class="content-input" size= 18 id="id" >
+                <input  type="text" class="content-input" size= 18 id="idCentral" >
             </div>
             <div class="content-ip">
                 <label>Numero serie:</label>
@@ -67,8 +68,8 @@
             </div>
             <div class="content-email" style="padding-top: 25px;">
                 <div id="status"></div>
-                <input type="button" class="content-input-button"  id="enviar" onclick="configurar()" value="enviar"/>  
-                <input type="button" class="content-input-button"  id="configurar" value="Configurar"/>
+                <input type="button" class="content-input-button"  id="enviar" value="Configurar"/>  
+                <input type="button" class="content-input-button"  id="configurar" value="Confirmar"/>
             </div>
         </div>
     </div>
@@ -76,6 +77,7 @@
     <script>
         require('./src/conecaoSSH.js')
         require('./src/reboot.js')
+        require('./src/criarTxt.js')
     </script>
 </body>
 </html>
