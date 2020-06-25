@@ -14,143 +14,89 @@ const sftp = new Client();
     let primeiroEmail = document.getElementById("email_1").value;
     let segundoEmail = document.getElementById("email_2").value;
     let status = document.getElementById("status");
-    let fiber = document.getElementById('fiber').checked;
-    let chip = document.getElementById('chip').checked;
-    let emailSim = document.getElementById('emailSim').checked;
-    let emailNao =  document.getElementById('emailNao').checked;
-    let ip = document.getElementById('ip').value;
+    let rede = document.getElementById('habilitarRede').checked;
+    let email = document.getElementById('habilitarEmail').checked;
     let idCentral = document.getElementById('idCentral').value;
-    let numeroSerie = document.getElementById('numeroSerie').value;
+    let idCheck = document.getElementById('habilitarID').checked;
 
-    if((fiber == true || chip == true ) && ( emailSim == true || emailNao == true ) && ip != ""){
+    if(email == true && rede == false ){
 
-      if(chip == true && emailSim == true && fiber == false && emailNao == false){
+      let rede = 'CHIP';
 
-        if(!primeiroEmail && !segundoEmail){
-          status.innerHTML = "Digite pelo menos 1 email!";
-        }else {
-          fs.writeFile('./arquivosTxt/Rede.txt', 'CHIP',{enconding:'utf-8',flag: 'w'}, function (err) {
-            if (err) throw err;
-              status.innerHTML = "Informações validas aguarde...";
-          });
-          fs.writeFile('./arquivosTxt/Gateway.txt', ''+gateway,{enconding:'utf-8',flag: 'w'}, function (err) {
-            if (err) throw err;
-              status.innerHTML = "Informações validas aguarde...";
-          });
-          fs.writeFile('./arquivosTxt/primeiroemail.txt', ''+primeiroEmail,{enconding:'utf-8',flag: 'w'}, function (err) {
-            if (err) throw err;
-              status.innerHTML = "Informações validas aguarde...";
-          });
-          fs.writeFile('./arquivosTxt/segundoemail.txt', ''+segundoEmail,{enconding:'utf-8',flag: 'w'}, function (err) {
-            if (err) throw err;
-              status.innerHTML = "Informações validas aguarde... ";
-          });
-          fs.writeFile('./arquivosTxt/idCentral.txt', ''+idCentral,{enconding:'utf-8',flag: 'w'}, function (err) {
-            if (err) throw err;
-              status.innerHTML = "Informações validas aguarde...";
-          });
-          fs.writeFile('./arquivosTxt/numeroSerie.txt', ''+numeroSerie,{enconding:'utf-8',flag: 'w'}, function (err) {
-            if (err) throw err;
-              status.innerHTML = "Informações validas aguarde...";
-          });
-          status.innerHTML = "Informações validas aguarde...";
-        }
+      if(!primeiroEmail && !segundoEmail){
+        status.innerHTML = "Erro : Email não preenchido";
+      }else {
+        createFiles(email, idCheck, rede, gateway, primeiroEmail, segundoEmail, idCentral)
       }
-
-      if( chip == false && emailSim == false && fiber == true && emailNao == true ){
-        if( !gateway ){
-          status.innerHTML = "Gateway não preenchido !";
-        }else {
-          fs.writeFile('./arquivosTxt/Rede.txt', 'FIBRA',{enconding:'utf-8',flag: 'w'}, function (err) {
-            if (err) throw err;
-              status.innerHTML = "Informações validas aguarde...";
-          });
-          fs.writeFile('./arquivosTxt/Gateway.txt', ''+gateway,{enconding:'utf-8',flag: 'w'}, function (err) {
-            if (err) throw err;
-              status.innerHTML = "Informações validas aguarde...";
-          });
-          fs.writeFile('./arquivosTxt/primeiroemail.txt', ''+primeiroEmail,{enconding:'utf-8',flag: 'w'}, function (err) {
-            if (err) throw err;
-              status.innerHTML = "Informações validas aguarde...";
-          });
-          fs.writeFile('./arquivosTxt/segundoemail.txt', ''+segundoEmail,{enconding:'utf-8',flag: 'w'}, function (err) {
-            if (err) throw err;
-              status.innerHTML = "Informações validas aguarde... ";
-          });
-          fs.writeFile('./arquivosTxt/idCentral.txt', ''+idCentral,{enconding:'utf-8',flag: 'w'}, function (err) {
-            if (err) throw err;
-              status.innerHTML = "Informações validas aguarde...";
-          });
-          fs.writeFile('./arquivosTxt/numeroSerie.txt', ''+numeroSerie,{enconding:'utf-8',flag: 'w'}, function (err) {
-            if (err) throw err;
-              status.innerHTML = "Informações validas aguarde...";
-          });
-          status.innerHTML = "Informações validas aguarde...";
-        }
-      }
-
-      if(chip == false && emailSim == true && fiber == true && emailNao == false){
-        if (!gateway || (!primeiroEmail && !segundoEmail)){
-          status.innerHTML = "Preencha todos os campos disponiveis!";
-        }else {
-          fs.writeFile('./arquivosTxt/Rede.txt', 'FIBRA',{enconding:'utf-8',flag: 'w'}, function (err) {
-            if (err) throw err;
-              status.innerHTML = "Informações validas aguarde...";
-          });
-          fs.writeFile('./arquivosTxt/Gateway.txt', ''+gateway,{enconding:'utf-8',flag: 'w'}, function (err) {
-            if (err) throw err;
-              status.innerHTML = "Informações validas aguarde...";
-          });
-          fs.writeFile('./arquivosTxt/primeiroemail.txt', ''+primeiroEmail,{enconding:'utf-8',flag: 'w'}, function (err) {
-            if (err) throw err;
-              status.innerHTML = "Informações validas aguarde...";
-          });
-          fs.writeFile('./arquivosTxt/segundoemail.txt', ''+segundoEmail,{enconding:'utf-8',flag: 'w'}, function (err) {
-            if (err) throw err;
-              status.innerHTML = "Informações validas aguarde...";
-          });
-          fs.writeFile('./arquivosTxt/idCentral.txt', ''+idCentral,{enconding:'utf-8',flag: 'w'}, function (err) {
-            if (err) throw err;
-              status.innerHTML = "Informações validas aguarde...";
-          });
-          fs.writeFile('./arquivosTxt/numeroSerie.txt', ''+numeroSerie,{enconding:'utf-8',flag: 'w'}, function (err) {
-            if (err) throw err;
-              status.innerHTML = "Informações validas aguarde...";
-             
-          });
-          status.innerHTML = "Informações validas aguarde...";
-        }
-      }
-
-      if( chip == true && emailSim == false && fiber == false && emailNao == true ){
-        fs.writeFile('./arquivosTxt/Rede.txt', 'CHIP',{enconding:'utf-8',flag: 'w'}, function (err) {
-          if (err) throw err;
-            status.innerHTML = "Informações validas aguarde...";
-        });
-        fs.writeFile('./arquivosTxt/Gateway.txt', ''+gateway,{enconding:'utf-8',flag: 'w'}, function (err) {
-          if (err) throw err;
-            status.innerHTML = "Informações validas aguarde...";
-        });
-        fs.writeFile('./arquivosTxt/primeiroemail.txt', ''+primeiroEmail,{enconding:'utf-8',flag: 'w'}, function (err) {
-          if (err) throw err;
-            status.innerHTML = "Informações validas aguarde...";
-        });
-        fs.writeFile('./arquivosTxt/segundoemail.txt', ''+segundoEmail,{enconding:'utf-8',flag: 'w'}, function (err) {
-          if (err) throw err;
-            status.innerHTML = "Informações validas aguarde...";
-        });
-        fs.writeFile('./arquivosTxt/idCentral.txt', ''+idCentral,{enconding:'utf-8',flag: 'w'}, function (err) {
-          if (err) throw err;
-            status.innerHTML = "Informações validas aguarde...";
-        });
-        fs.writeFile('./arquivosTxt/numeroSerie.txt', ''+numeroSerie,{enconding:'utf-8',flag: 'w'}, function (err) {
-          if (err) throw err;
-            status.innerHTML = "Informações validas aguarde...";
-        });
-        status.innerHTML = "Informações validas Clique em enviar";
-      }
-    }else {
-      return status.innerHTML = "Opcões Rede, IP ou Email não selecionado!";
     }
-    document.getElementById('enviar').value = "Enviar";
+
+    if( email == false && rede == true  ){
+
+      let rede = "FIBRA";
+
+      if( !gateway ){
+        status.innerHTML = "Gateway não preenchido !";
+      }else {
+        createFiles(email, idCheck, rede, gateway, primeiroEmail, segundoEmail, idCentral)
+      }
+    }
+
+    if(email == true && rede == true ){
+
+      let rede = "FIBRA";
+      if (!gateway || (!primeiroEmail && !segundoEmail)){
+        status.innerHTML = "Preencha todos os campos disponiveis!";
+      }else {
+        createFiles(email, idCheck, rede, gateway, primeiroEmail, segundoEmail, idCentral)
+      }
+    }
+
+    if( rede == false && email == false ){
+      let rede = "CHIP";
+      createFiles(email, idCheck, rede, gateway, primeiroEmail, segundoEmail, idCentral)
+    }else {
+      return 0;
+    }
   };
+
+function setButton(){
+
+  let status = document.getElementById("status");
+  status.innerHTML = "Informações validas Clique em enviar";
+  document.getElementById('enviar').value = "Enviar";
+}
+
+function createFiles( email, arquivoID , rede , gateway , primeiroEmail , segundoEmail, idCentral){
+  let ip = document.getElementById('ip').value;
+  let status = document.getElementById("status");
+
+  if( ip != ""){
+    fs.writeFile('./arquivosTxt/Rede.txt', ''+rede,{enconding:'utf-8',flag: 'w'}, function (err) {
+      if (err) throw err;
+        console.log(err);
+    });
+    fs.writeFile('./arquivosTxt/Gateway.txt', ''+gateway,{enconding:'utf-8',flag: 'w'}, function (err) {
+      if (err) throw err;
+        console.log(err);
+    });
+    if(email == true){
+      fs.writeFile('./arquivosTxt/primeiroemail.txt', ''+primeiroEmail,{enconding:'utf-8',flag: 'w'}, function (err) {
+      if (err) throw err;
+        console.log(err);
+      });
+      fs.writeFile('./arquivosTxt/segundoemail.txt', ''+segundoEmail,{enconding:'utf-8',flag: 'w'}, function (err) {
+        if (err) throw err;
+          console.log(err);
+      });
+    }
+    if(arquivoID == true){
+      fs.writeFile('./arquivosTxt/idCentral.txt', ''+idCentral,{enconding:'utf-8',flag: 'w'}, function (err) {
+        if (err) throw err;
+          console.log(err);
+      });
+    }
+    setButton()
+  }else {
+    return status.innerHTML = "Erro : IP não digitado !";
+  }
+}

@@ -2,11 +2,11 @@ const Client = require('ssh2-sftp-client','ssh2');
 const { electron } = require('process');
 const sftp = new Client();
 
-document.querySelector('#enviar').addEventListener('click', ()=>{
-    let ip = document.getElementById('ip').value;
+ document.querySelector('#enviar').addEventListener('click', ()=>{
+     let ip = document.getElementById('ip').value;
     
-    conectarSSH(ip);
-  })
+     conectarSSH(ip);
+   })
 
  function conectarSSH(ip) {
     let status = document.getElementById("status");
@@ -16,7 +16,7 @@ document.querySelector('#enviar').addEventListener('click', ()=>{
         return 0;
     }
  
-    if(conn == "Informações validas aguarde..."){
+    if(conn == "Informações validas Clique em enviar"){
      status.innerHTML = "entrou para conectar";
      sftp.connect({
          host: ip, 
@@ -25,17 +25,17 @@ document.querySelector('#enviar').addEventListener('click', ()=>{
          password:'temppwd',
      }).then(() => {
          
-         sftp.put('../arquivosTxt/Rede.txt', '/home/debian/SendEmail_jar/Rede.txt'); 
-         sftp.put('../arquivosTxt/gateway.txt', '/home/debian/SendEmail_jar/Gateway.txt'); 
-         sftp.put('../arquivosTxt/primeiroemail.txt', '/home/debian/SendEmail_jar/Email_1.txt');
-         sftp.put('../arquivosTxt/segundoemail.txt', '/home/debian/SendEmail_jar/Email_2.txt');
-         sftp.put('../arquivosTxt/idCentral.txt', '/home/debian/numeroSerie.conf');
-         sftp.put('../arquivosTxt/numeroSerie.txt', '/home/debian/name.txt');
+         sftp.put('./arquivosTxt/Rede.txt', '/home/debian/SendEmail_jar/Rede.txt'); 
+         sftp.put('./arquivosTxt/gateway.txt', '/home/debian/SendEmail_jar/Gateway.txt'); 
+         sftp.put('./arquivosTxt/primeiroemail.txt', '/home/debian/SendEmail_jar/Email_1.txt');
+         sftp.put('./arquivosTxt/segundoemail.txt', '/home/debian/SendEmail_jar/Email_2.txt');
+         sftp.put('./arquivosTxt/idCentral.txt', '/home/debian/numeroSerie.txt');
+         sftp.put('./arquivosTxt/idCentral.txt', '/home/debian/NAME.txt');
          status.innerHTML = "Confirme a alteração";
          return sftp.list('/home/debian');
      }).then(data => {
          console.log(data, 'the data info');
-         //status.innerHTML = "data";
+        
      }).then(() => {
        //status.innerHTML = "fechou";
          return sftp.end();
@@ -43,10 +43,8 @@ document.querySelector('#enviar').addEventListener('click', ()=>{
      }).catch(err => {
          status.innerHTML = "IP nao encontrado !";
          console.log(err, 'catch error');
-     });
-   }else{
-     status.innerHTML = "erro if conectar!";
+     })
+   }else {
      return 0
    }
  }
- 

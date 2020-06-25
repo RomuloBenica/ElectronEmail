@@ -4,11 +4,32 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dist": "electron-builder"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Romulo Benica",
+  "license": "MIT",
   "devDependencies": {
-    "electron": "^9.0.1"
+    "electron": "^9.0.1",
+    "electron-builder": "^22.7.0"
+  },
+  "dependencies": {
+    "electron-ssh2": "^0.1.2",
+    "express": "^4.17.1",
+    "scp2": "^0.5.0",
+    "ssh2": "^0.8.9",
+    "ssh2-sftp-client": "^5.1.2"
+  },
+  "build": {
+    "appId": "com.configuracaoEmail.app",
+    "productName": "GW Monitoramento",
+    "target": "NSIS",
+    "icon": "./build/logoIcon.ico",
+    "extraFiles": [
+      "arquivosTxt"
+    ]
+  },
+  "win": {
+    "icon": "./build/logoIcon.ico"
   }
 }

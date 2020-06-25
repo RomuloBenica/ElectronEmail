@@ -22,50 +22,51 @@
             <img id="imagem" src="./assets/logo.png">
             
             <div class="content-checkbox">
-                <label >Modo de rede:</label>
-                <input type="radio" id="chip" name="opcao" onclick="verificaChecboxbGateway()">
-                <label for="chip" >Chip</label>
 
-                <input type="radio" id="fiber" name="opcao" onclick="verificaChecboxbGateway()" >
+                <label >Modo de rede:</label>
+                <label for="chip" >Chip</label>
+                <label class="switchRede" >
+                    <input type="checkbox" id="habilitarRede" onclick="verificaChecboxbGateway()">
+                    <span class="sliderRede" ></span>
+                </label>
                 <label for="fiber" >Fibra</label>
 
             </div>
 
             <div class="content-gateway" >
                 <label >Gateway :</label>
-                <input type="text" class= "content-input" size= 19 maxlength="15" onkeypress="return event.charCode >= 46 && event.charCode <= 57" disabled=true id="gateway" placeholder="192.168.0.1">
+                <input type="text" class= "content-input" size= 19 maxlength="15" onclick="setButton()" onkeypress="return event.charCode >= 46 && event.charCode <= 57" disabled=true id="gateway" placeholder="192.168.0.1">
             </div>
 
             <div class="content-checkbox-email">
                 <label>Habilitar email:</label>
-                <input type="radio" id="emailSim" name="emailSimNao" onclick="verificaChecboxbEmail()" >
-                <label for="emailSim" >SIM</label>
-
-                <input type="radio" id="emailNao" name="emailSimNao" onclick="verificaChecboxbEmail()" >
-                <label for="emailNao" >NÂO</label>
-
+                <label class="switch" >
+                    <input type="checkbox" id="habilitarEmail" onclick="verificaChecboxbEmail()">
+                    <span class="slider" ></span>
+                </label>
             </div>
 
             <div class="content-email">
                 <label>Email 1 :</label>
-                <input type="email" class="content-input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" disabled=true id="email_1"   placeholder="exemplo@email.com">
+                <input type="email" class="content-input" onclick="setButton()" disabled=true id="email_1"   placeholder="exemplo@email.com">
             </div>
             <div class="content-email">
                 <label>Email 2 :</label>
-                <input type="email" class="content-input" disabled=true id="email_2" >
+                <input type="email" class="content-input" onclick="setButton()" disabled=true id="email_2" >
             </div>
             <div class="content-ip">
                 <label>IP Placa:</label>
-                <input  type="text" class="content-input"  id="ip" maxlength="15" onkeypress="return event.charCode >= 46 && event.charCode <= 57">
+                <input  type="text" class="content-input"  id="ip" onclick="setButton()" maxlength="15" onkeypress="return event.charCode >= 46 && event.charCode <= 57">
             </div>
             <div class="content-ip">
                 <label>ID Central:</label>
-                <input  type="text" class="content-input" size= 18 id="idCentral" >
+                <input  type="text" class="content-input" size= 18 id="idCentral" onclick="setButton()" disabled = true>
+                <label class="switch" >
+                    <input type="checkbox" id="habilitarID" onclick="verificaCheckboxID()">
+                    <span class="slider" ></span>
+                </label>
             </div>
-            <div class="content-ip">
-                <label>Numero serie:</label>
-                <input  type="text" class="content-input" size= 14 id="numeroSerie" >
-            </div>
+            
             <div class="content-email" style="padding-top: 25px;">
                 <div id="status"></div>
                 <input type="button" class="content-input-button"  id="enviar" value="Configurar"/>  
