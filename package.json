@@ -1,5 +1,5 @@
 {
-  "name": "interfacedeemail",
+  "name": "GreenWave",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
@@ -7,13 +7,14 @@
     "start": "electron .",
     "dist": "electron-builder"
   },
-  "author": "Romulo Benica",
+  "author": "Eng. Greenwave",
   "license": "MIT",
   "devDependencies": {
     "electron": "^9.0.1",
     "electron-builder": "^22.7.0"
   },
   "dependencies": {
+    "electron-alert": "^0.1.6",
     "electron-ssh2": "^0.1.2",
     "express": "^4.17.1",
     "scp2": "^0.5.0",

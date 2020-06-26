@@ -90,13 +90,19 @@ function createFiles( email, arquivoID , rede , gateway , primeiroEmail , segund
       });
     }
     if(arquivoID == true){
+      
       fs.writeFile('./arquivosTxt/idCentral.txt', ''+idCentral,{enconding:'utf-8',flag: 'w'}, function (err) {
+        if (err) throw err;
+          console.log(err);
+      });
+      fs.writeFile('./arquivosTxt/name.txt', ''+idCentral,{enconding:'utf-8',flag: 'w'}, function (err) {
         if (err) throw err;
           console.log(err);
       });
     }
     setButton()
   }else {
-    return status.innerHTML = "Erro : IP não digitado !";
+    status.innerHTML = "Erro : IP não digitado !";
+    // return setTimeout(function() { alert("Erro : IP não digitado !"); }, 200);
   }
 }

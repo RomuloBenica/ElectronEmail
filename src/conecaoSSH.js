@@ -4,7 +4,6 @@ const sftp = new Client();
 
  document.querySelector('#enviar').addEventListener('click', ()=>{
      let ip = document.getElementById('ip').value;
-    
      conectarSSH(ip);
    })
 

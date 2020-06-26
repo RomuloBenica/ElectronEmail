@@ -15,10 +15,11 @@ function createWindow () {
     webPreferences: {
       nodeIntegration: true
     },
+  
   });
 
- win.loadURL(`file://${__dirname}/index.html`);
- 
+win.loadURL(`file://${__dirname}/index.html`);
+
  win.on("close", () => {
    win.webContents.send("stop-server");
  })
