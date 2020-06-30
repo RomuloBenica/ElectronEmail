@@ -1,4 +1,6 @@
-
+const { app } = require('electron');
+const remote = require('electron').remote;
+const { electron } = require('process');
 const Client = require('ssh2').Client;
 var conn = new Client();
 
@@ -8,13 +10,19 @@ var conn = new Client();
      let status = document.getElementById("status");
      let conn = document.getElementById('status').innerHTML;
      if(conn == 'Confirme a alteração'){
-         reboot(ip);
-         status.innerHTML = "Placa configurada com sucesso !!";
-     }else {
-         document.getElementById('enviar').value = "Configurar";
-         return status.innerHTML = "Informações não foram enviadas !";
-     }
-  })
+        reboot(ip);
+        //status.innerHTML = "Placa configurada com sucesso !!";
+        alert("Placa configurada com sucesso !!");
+        // setTimeout(function(){         
+        //     remote.app.relaunch();
+        // }, 500);
+        setButton();
+      }else {
+          document.getElementById('enviar').value = "Configurar";
+          alert("Erro: Informações não foram enviadas !");
+          return status.innerHTML = "Informações não foram enviadas !";
+      }
+   })
 
 function reboot (ip){
 
@@ -52,10 +60,12 @@ function reboot (ip){
             console.log('STDERR: ' + data);
             });
         });
+
         }).connect({
         host: ip,
         port: 22,
         username: 'debian',
         password: 'temppwd'
         });
+
 }

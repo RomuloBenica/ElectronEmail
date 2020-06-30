@@ -9,14 +9,13 @@
     <script type="text/javascript" src="./src/controller.js"></script> 
     <script type="text/javascript" src="./src/conecaoSSH.js"></script> 
     <script type="text/javascript" src="./src/criarTxt.js"></script>
-   
     <link rel="stylesheet" href="./style/styles.css">
    
 </head>
 <body>
    
     <div id="page-home" >
-
+        
         <div class="content">
             
             <img id="imagem" src="./assets/logo.png">
@@ -53,7 +52,9 @@
                 <label>Email 2 :</label>
                 <input type="email" class="content-input" onclick="setButton()" disabled=true id="email_2" >
             </div>
+            
             <div class="content-ip">
+                
                 <label>IP Placa:</label>
                 <input  type="text" class="content-input"  id="ip" onclick="setButton()" maxlength="15" onkeypress="return event.charCode >= 46 && event.charCode <= 57">
             </div>
@@ -67,10 +68,24 @@
             </div>
             
             <div class="content-email" style="padding-top: 25px;">
+                
+                <div class="popup" id="popupId">
+                    <span class="popuptext" id="IpErr">IP não digitado !</span>
+                    <span class="popuptext" id="EmailErr">Erro : Email não preenchido!</span>
+                    <span class="popuptext" id="GatewayErr">Gateway não preenchido !</span>
+                    <span class="popuptext" id="AllErr">Preencha todos os campos disponiveis!</span>
+                    <span class="popuptext" id="EnvioLiberado">Informações validas Clique em enviar</span>
+                    <span class="popuptext" id="enviando">Enviando...</span>
+                    <span class="popuptext" id="confirmar">Clique em confirmar</span>
+                    <span class="popuptext" id="IpNaoEncontrado">IP não encontrado !</span>
+                </div>
+                <div>
+                    <input type="button" class="content-input-button"  id="enviar" value="Configurar"/>  
+                    <input type="button" class="content-input-button"  id="configurar" value="Confirmar"/>
+                </div>
                 <strong><div id="status"></div></strong>
-                <input type="button" class="content-input-button"  id="enviar" value="Configurar"/>  
-                <input type="button" class="content-input-button"  id="configurar" value="Confirmar"/>
             </div>
+           
         </div>
     </div>
 

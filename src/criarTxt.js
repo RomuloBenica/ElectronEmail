@@ -5,6 +5,8 @@ const sftp = new Client();
 
 
   document.querySelector('#enviar').addEventListener('click', ()=>{
+   // var popup = document.getElementById("myPopup");
+    //popup.classList.toggle("show");
     configurar();
   })
 
@@ -25,6 +27,7 @@ const sftp = new Client();
 
       if(!primeiroEmail && !segundoEmail){
         status.innerHTML = "Erro : Email não preenchido";
+        popupMensage('EmailErr');
       }else {
         createFiles(email, idCheck, rede, gateway, primeiroEmail, segundoEmail, idCentral)
       }
@@ -36,6 +39,7 @@ const sftp = new Client();
 
       if( !gateway ){
         status.innerHTML = "Gateway não preenchido !";
+        popupMensage('GatewayErr');
       }else {
         createFiles(email, idCheck, rede, gateway, primeiroEmail, segundoEmail, idCentral)
       }
@@ -46,6 +50,7 @@ const sftp = new Client();
       let rede = "FIBRA";
       if (!gateway || (!primeiroEmail && !segundoEmail)){
         status.innerHTML = "Preencha todos os campos disponiveis!";
+        popupMensage('AllErr');
       }else {
         createFiles(email, idCheck, rede, gateway, primeiroEmail, segundoEmail, idCentral)
       }
@@ -57,18 +62,22 @@ const sftp = new Client();
     }else {
       return 0;
     }
+
   };
 
-function setButton(){
-
+function setButtonTxt(){
+  
   let status = document.getElementById("status");
   status.innerHTML = "Informações validas Clique em enviar";
+  popupMensage('EnvioLiberado');
   document.getElementById('enviar').value = "Enviar";
+ 
 }
 
 function createFiles( email, arquivoID , rede , gateway , primeiroEmail , segundoEmail, idCentral){
-  let ip = document.getElementById('ip').value;
+  
   let status = document.getElementById("status");
+  let ip = document.getElementById('ip').value;
 
   if( ip != ""){
     fs.writeFile('./arquivosTxt/Rede.txt', ''+rede,{enconding:'utf-8',flag: 'w'}, function (err) {
@@ -100,9 +109,10 @@ function createFiles( email, arquivoID , rede , gateway , primeiroEmail , segund
           console.log(err);
       });
     }
-    setButton()
+    setButtonTxt()
   }else {
     status.innerHTML = "Erro : IP não digitado !";
-    // return setTimeout(function() { alert("Erro : IP não digitado !"); }, 200);
+    popupMensage('IpErr');
+    return 0;
   }
 }

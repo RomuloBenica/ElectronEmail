@@ -44,5 +44,20 @@ function setButton (){
         }
 }
 
+function popupMensage(IdPopup){
+  let popup = document.getElementById(IdPopup);
+       
+  popup.classList.toggle('show');
+  setTimeout(function(){         
+    popup.classList.remove("show");
+  }, 2500);
+  
+}
+
+function popupRemove(IdPopup){
+  let popup = document.getElementById(IdPopup);
+  popup.classList.remove("show");
+}
+
     
   

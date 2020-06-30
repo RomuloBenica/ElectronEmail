@@ -2,10 +2,12 @@ const Client = require('ssh2-sftp-client','ssh2');
 const { electron } = require('process');
 const sftp = new Client();
 
- document.querySelector('#enviar').addEventListener('click', ()=>{
-     let ip = document.getElementById('ip').value;
-     conectarSSH(ip);
-   })
+document.querySelector('#enviar').addEventListener('click', ()=>{
+  let ip = document.getElementById('ip').value;
+  conectarSSH(ip);
+  
+})
+
 
  function conectarSSH(ip) {
     let status = document.getElementById("status");
@@ -16,7 +18,7 @@ const sftp = new Client();
     }
  
     if(conn == "Informações validas Clique em enviar"){
-     status.innerHTML = "entrou para conectar";
+     popupMensage('enviando');
      sftp.connect({
          host: ip, 
          port: '22',
@@ -30,7 +32,7 @@ const sftp = new Client();
         sftp.put('./arquivosTxt/segundoemail.txt', '/home/debian/SendEmail_jar/Email_2.txt');
         sftp.put('./arquivosTxt/name.txt', '/home/debian/NAME.txt');
         status.innerHTML = "Confirme a alteração";
-
+        popupMensage('confirmar');
         return sftp.put('./arquivosTxt/idCentral.txt', '/home/debian/numeroSerie.txt');
         
      }).then(data => {
@@ -42,9 +44,12 @@ const sftp = new Client();
          
      }).catch(err => {
          status.innerHTML = "IP nao encontrado !";
+         popupMensage('IpNaoEncontrado')
          console.log(err, 'catch error');
      })
    }else {
      return 0
    }
  }
+ 
+
