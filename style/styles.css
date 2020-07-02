@@ -45,14 +45,29 @@ body {
 .content-input-button {
     width: 100px;
     height: 30px;
-    
+    margin-right: 5px;
     background-color:#3bb674f8;
-    border-radius: 20px 15px;
+    border-radius: 10px 10px;
     border: none;
     cursor: pointer;
 }
 
 .content-input-button:hover { 
+    background-color:#269e5ef8;
+    transition: 0.8;
+}
+
+.content-input-button-receber{
+    width: 26px;
+    height: 30px;
+    margin-right: 5px;
+    background:url("../assets/baixar.png") no-repeat center;
+    background-color:#3bb674f8;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+.content-input-button-receber:hover { 
     background-color:#269e5ef8;
     transition: 0.8;
 }

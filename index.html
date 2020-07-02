@@ -19,7 +19,7 @@
         <div class="content">
             
             <img id="imagem" src="./assets/logo.png">
-            
+                
             <div class="content-checkbox">
 
                 <label >Modo de rede:</label>
@@ -46,11 +46,11 @@
             </div>
             <div class="content-email">
                 <label>Email 1 :</label>
-                <input type="email" class="content-input" onclick="setButton()" disabled=true id="email_1"   placeholder="exemplo@email.com">
+                <input type="email" class="content-input" onclick="setButton()" disabled=true id="email_1" placeholder="exemplo@email.com">
             </div>
             <div class="content-email">
                 <label>Email 2 :</label>
-                <input type="email" class="content-input" onclick="setButton()" disabled=true id="email_2" >
+                <input type="email" class="content-input" onclick="setButton()" disabled=true id="email_2" placeholder="exemplo@email.com">
             </div>
             
             <div class="content-ip">
@@ -78,10 +78,12 @@
                     <span class="popuptext" id="enviando">Enviando...</span>
                     <span class="popuptext" id="confirmar">Clique em confirmar</span>
                     <span class="popuptext" id="IpNaoEncontrado">IP não encontrado !</span>
+                    <span class="popuptext" id="aguarde">Recebendo dados... </span>
                 </div>
-                <div>
-                    <input type="button" class="content-input-button"  id="enviar" value="Configurar"/>  
-                    <input type="button" class="content-input-button"  id="configurar" value="Confirmar"/>
+                <div style="display: flex; flex-direction: row; padding: 1px;">
+                    <input type="button" class="content-input-button-receber"  id="receber" value=""/>
+                    <input type="button" class="content-input-button"  id="enviar" value="Configurar" />  
+                    <input type="button" class="content-input-button"  id="configurar" value="Confirmar" disabled = "true"/>
                 </div>
                 <strong><div id="status"></div></strong>
             </div>
@@ -93,6 +95,7 @@
         require('./src/conecaoSSH.js')
         require('./src/reboot.js')
         require('./src/criarTxt.js')
+        require('./src/testeLeitura.js')
     </script>
 </body>
 </html>

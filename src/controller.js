@@ -40,6 +40,7 @@ function setButton (){
         let status = document.getElementById("status");
         if(status != ""){
           status.innerHTML = "";
+          document.getElementById('configurar').disabled = true;
           document.getElementById('enviar').value = "Configurar";
         }
 }
@@ -50,14 +51,6 @@ function popupMensage(IdPopup){
   popup.classList.toggle('show');
   setTimeout(function(){         
     popup.classList.remove("show");
-  }, 2500);
+  }, 2000);
   
 }
-
-function popupRemove(IdPopup){
-  let popup = document.getElementById(IdPopup);
-  popup.classList.remove("show");
-}
-
-    
-  

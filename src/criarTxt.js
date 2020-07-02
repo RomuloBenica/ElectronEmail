@@ -20,10 +20,10 @@ const sftp = new Client();
     let email = document.getElementById('habilitarEmail').checked;
     let idCentral = document.getElementById('idCentral').value;
     let idCheck = document.getElementById('habilitarID').checked;
-
+    
     if(email == true && rede == false ){
 
-      let rede = 'CHIP';
+      let rede = '3G';
 
       if(!primeiroEmail && !segundoEmail){
         status.innerHTML = "Erro : Email não preenchido";
@@ -57,7 +57,7 @@ const sftp = new Client();
     }
 
     if( rede == false && email == false ){
-      let rede = "CHIP";
+      let rede = "3G";
       createFiles(email, idCheck, rede, gateway, primeiroEmail, segundoEmail, idCentral)
     }else {
       return 0;

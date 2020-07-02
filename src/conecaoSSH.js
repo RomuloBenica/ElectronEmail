@@ -18,7 +18,8 @@ document.querySelector('#enviar').addEventListener('click', ()=>{
     }
  
     if(conn == "Informações validas Clique em enviar"){
-     popupMensage('enviando');
+      let popup = document.getElementById('enviando');
+      popup.classList.toggle('show');
      sftp.connect({
          host: ip, 
          port: '22',
@@ -32,7 +33,9 @@ document.querySelector('#enviar').addEventListener('click', ()=>{
         sftp.put('./arquivosTxt/segundoemail.txt', '/home/debian/SendEmail_jar/Email_2.txt');
         sftp.put('./arquivosTxt/name.txt', '/home/debian/NAME.txt');
         status.innerHTML = "Confirme a alteração";
+        popup.classList.remove("show");
         popupMensage('confirmar');
+        
         return sftp.put('./arquivosTxt/idCentral.txt', '/home/debian/numeroSerie.txt');
         
      }).then(data => {
@@ -40,11 +43,14 @@ document.querySelector('#enviar').addEventListener('click', ()=>{
         
      }).then(() => {
        //status.innerHTML = "fechou";
-         return sftp.end();
+        document.getElementById('configurar').disabled = false;
+        document.getElementById('enviar').value = "Configurar";
+        return sftp.end();
          
      }).catch(err => {
          status.innerHTML = "IP nao encontrado !";
-         popupMensage('IpNaoEncontrado')
+         popup.classList.remove("show");
+         popupMensage('IpNaoEncontrado');
          console.log(err, 'catch error');
      })
    }else {

@@ -1,6 +1,7 @@
 const { app } = require('electron');
 const remote = require('electron').remote;
-const { electron } = require('process');
+const { electron, exit } = require('process');
+const { EINPROGRESS } = require('constants');
 const Client = require('ssh2').Client;
 var conn = new Client();
 
@@ -12,11 +13,10 @@ var conn = new Client();
      if(conn == 'Confirme a alteração'){
         reboot(ip);
         //status.innerHTML = "Placa configurada com sucesso !!";
-        alert("Placa configurada com sucesso !!");
-        // setTimeout(function(){         
-        //     remote.app.relaunch();
-        // }, 500);
+        alert("Placa configurada com sucesso!!");
         setButton();
+        remote.app.relaunch ();
+        
       }else {
           document.getElementById('enviar').value = "Configurar";
           alert("Erro: Informações não foram enviadas !");
@@ -69,3 +69,4 @@ function reboot (ip){
         });
 
 }
+
