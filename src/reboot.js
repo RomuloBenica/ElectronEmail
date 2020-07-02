@@ -13,9 +13,15 @@ var conn = new Client();
      if(conn == 'Confirme a alteração'){
         reboot(ip);
         //status.innerHTML = "Placa configurada com sucesso !!";
-        alert("Placa configurada com sucesso!!");
-        setButton();
-        remote.app.relaunch ();
+        setTimeout(function (){
+
+            alert("Placa configurada com sucesso!!");
+              setButton();
+              setTimeout(function(){
+              remote.app.relaunch ();
+              remote.app.exit();
+            },2500)
+        },1200)
         
       }else {
           document.getElementById('enviar').value = "Configurar";

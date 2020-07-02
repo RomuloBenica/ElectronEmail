@@ -51,7 +51,7 @@ function receber(ip){
         }).then(() => {
             return sftp.end();
         }).catch(err => {
-            popupMensage('IpNaoEncontrado');
+            popupMensage('ErrDados');
             console.log(err, 'catch error');
         })
     }else{
