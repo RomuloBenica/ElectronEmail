@@ -8,16 +8,15 @@ body {
     width: 120px;
     left: 100px;
 }
+
 .content-checkbox {
-    width: 100%;
     padding-left: 9%;
     padding-top: 10px;
 }
+
 .content-checkbox-email {
-    width: 100%;
     padding-left: 9%;
     padding-top: 10px;
-    
 }
 
 .content-gateway {
@@ -28,14 +27,14 @@ body {
 .content-email {
     padding-top: 5px;
     padding-left: 9%;
-
 }
 
 .content-ip {
+    
     flex: 1;
     flex-direction: column;
     padding-top: 7px;
-    padding-left: 9.5%;
+    padding-left: 9%;
 }
 
 .content-input {

@@ -41,7 +41,8 @@ function setButton (){
         if(status != ""){
           status.innerHTML = "";
           document.getElementById('configurar').disabled = true;
-          document.getElementById('enviar').value = "Configurar";
+          document.getElementById('enviar').disabled = false;
+          popup.classList.remove("show");
         }
 }
 
@@ -51,6 +52,6 @@ function popupMensage(IdPopup){
   popup.classList.toggle('show');
   setTimeout(function(){         
     popup.classList.remove("show");
-  }, 2000);
+  }, 2500);
   
 }

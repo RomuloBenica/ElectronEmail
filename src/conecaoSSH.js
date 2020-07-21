@@ -2,14 +2,7 @@ const Client = require('ssh2-sftp-client','ssh2');
 const { electron } = require('process');
 const sftp = new Client();
 
-document.querySelector('#enviar').addEventListener('click', ()=>{
-  let ip = document.getElementById('ip').value;
-  conectarSSH(ip);
-  
-})
-
-
- function conectarSSH(ip) {
+ exports.conectarSSH = function(ip) {
     let status = document.getElementById("status");
     let conn = document.getElementById('status').innerHTML;
 
@@ -17,7 +10,7 @@ document.querySelector('#enviar').addEventListener('click', ()=>{
         return 0;
     }
  
-    if(conn == "Informações validas Clique em enviar"){
+    if(conn == "Informações validas enviando"){
       let popup = document.getElementById('enviando');
       popup.classList.toggle('show');
      sftp.connect({
@@ -44,7 +37,7 @@ document.querySelector('#enviar').addEventListener('click', ()=>{
      }).then(() => {
        //status.innerHTML = "fechou";
         document.getElementById('configurar').disabled = false;
-        document.getElementById('enviar').value = "Configurar";
+        document.getElementById('enviar').disabled = true;
         return sftp.end();
          
      }).catch(err => {
@@ -57,5 +50,3 @@ document.querySelector('#enviar').addEventListener('click', ()=>{
      return 0
    }
  }
- 
-

@@ -10,8 +10,8 @@ function createWindow () {
   
   let win = new BrowserWindow({
     autoHideMenuBar: false,
-    width: 340,
-    height: 460,
+    width: 350,
+    height: 470,
     webPreferences: {
       nodeIntegration: true
     },

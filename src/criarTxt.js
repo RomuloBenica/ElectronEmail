@@ -1,13 +1,15 @@
 const fs = require('fs');
 const Client = require('ssh2-sftp-client','ssh2');
 const { electron } = require('process');
+const conecaoSSH = require('./conecaoSSH');
 const sftp = new Client();
-
 
   document.querySelector('#enviar').addEventListener('click', ()=>{
    // var popup = document.getElementById("myPopup");
     //popup.classList.toggle("show");
+    let ip = document.getElementById('ip').value;
     configurar();
+    conecaoSSH.conectarSSH(ip);
   })
 
   function configurar(){
@@ -65,15 +67,6 @@ const sftp = new Client();
 
   };
 
-function setButtonTxt(){
-  
-  let status = document.getElementById("status");
-  status.innerHTML = "Informações validas Clique em enviar";
-  popupMensage('EnvioLiberado');
-  document.getElementById('enviar').value = "Enviar";
- 
-}
-
 function createFiles( email, arquivoID , rede , gateway , primeiroEmail , segundoEmail, idCentral){
   
   let status = document.getElementById("status");
@@ -109,7 +102,8 @@ function createFiles( email, arquivoID , rede , gateway , primeiroEmail , segund
           console.log(err);
       });
     }
-    setButtonTxt()
+    
+    status.innerHTML = "Informações validas enviando";
   }else {
     status.innerHTML = "Erro : IP não digitado !";
     popupMensage('IpErr');

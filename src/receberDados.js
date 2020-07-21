@@ -22,6 +22,8 @@ function receber(ip){
 
             sftp.get('/home/debian/SendEmail_jar/Email_1.txt', './arquivosTxt/primeiroemail.txt');
             sftp.get('/home/debian/SendEmail_jar/Email_2.txt', './arquivosTxt/segundoemail.txt');
+            sftp.get('/home/debian/SendEmail_jar/Rede.txt', './arquivosTxt/Rede.txt');
+            sftp.get('/home/debian/SendEmail_jar/Gateway.txt', './arquivosTxt/Gateway.txt');
             sftp.get('/home/debian/NAME.txt', './arquivosTxt/idCentral.txt');
             
             setTimeout(function (){
@@ -43,6 +45,28 @@ function receber(ip){
                     document.getElementById("idCentral").value = ""+valorLidoIdCentral;
                     return console.log(""+valorLidoIdCentral+"  salvei ID");
                 });
+                fs.readFile('./arquivosTxt/Rede.txt', 'utf-8', function (err , data) {
+                    if(err) throw err;
+                    let valorLidoGateway = data;
+                    if (data == '3G'){
+                        document.getElementById('habilitarRede').checked = false;
+                        document.getElementById('gateway').disabled = true;
+                        document.getElementById('gateway').value = "";
+                        console.log('3G  '+data);
+                    }else if (data == 'FIBRA'){
+                        console.log('FIBRA : '+data)
+                        document.getElementById('habilitarRede').checked = true;
+                        document.getElementById('gateway').disabled = false;
+                        fs.readFile('./arquivosTxt/Gateway.txt', 'utf-8', function (err , data) {
+                            if(err) throw err;
+                            let valorLidoGateway = data;
+                            document.getElementById("gateway").value = ""+valorLidoGateway;
+                            return console.log('Gateway : '+valorLidoGateway);
+                        })
+                        return console.log('');
+                    }
+                });
+                
             },1000);
             popup.classList.remove('show');
             return sftp.list('/home/debian/SendEmail_jar');
