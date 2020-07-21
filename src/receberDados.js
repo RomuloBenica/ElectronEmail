@@ -22,7 +22,7 @@ function receber(ip){
 
             sftp.get('/home/debian/SendEmail_jar/Email_1.txt', './arquivosTxt/primeiroemail.txt');
             sftp.get('/home/debian/SendEmail_jar/Email_2.txt', './arquivosTxt/segundoemail.txt');
-            sftp.get('/home/debian/SendEmail_jar/Rede.txt', './arquivosTxt/Rede.txt');
+            sftp.get('/home/debian/SendEmail_jar/Rede.txt', './arquivosTxt/Rede.txt' );
             sftp.get('/home/debian/SendEmail_jar/Gateway.txt', './arquivosTxt/Gateway.txt');
             sftp.get('/home/debian/NAME.txt', './arquivosTxt/idCentral.txt');
             

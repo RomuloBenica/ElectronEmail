@@ -14,14 +14,11 @@ var conn = new Client();
         reboot(ip);
         //status.innerHTML = "Placa configurada com sucesso !!";
         setTimeout(function (){
-
+            remote.app.relaunch();
             alert("Placa configurada com sucesso!!");
-              setButton();
-              setTimeout(function(){
-              remote.app.relaunch ();
-              remote.app.exit();
-            },2500)
-        },1200)
+            remote.app.exit();
+            setButton();
+        },1500)
         
       }else {
           document.getElementById('enviar').value = "Configurar";
